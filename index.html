@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andro Yuson | Healthcare Marketing</title>
+<meta name="description" content="Andro Yuson, senior marketing generalist: demand generation, marketing automation, social, and content for healthcare audiences.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF3F5; --ink:#14222B; --muted:#4D6370; --line:#C4D4DA;
+  --teal:#0E6B73; --tint:#DCEEF0;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--sans)}
+a{color:var(--teal);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+header{padding:5rem 0 3.5rem}
+.name{font-weight:500;color:var(--muted);margin:0 0 1.5rem}
+h1{font-size:clamp(2.2rem,6vw,3.9rem);letter-spacing:-.015em;max-width:18ch}
+.lede{font-size:1.2rem;color:var(--muted);max-width:40rem;margin:1.5rem 0 2rem}
+.links{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.7rem 1.2rem;border:1.5px solid var(--teal);border-radius:6px;font-weight:600;text-decoration:none;color:var(--teal)}
+.btn.primary{background:var(--teal);color:#fff}
+.btn:hover{background:var(--tint);color:var(--ink)}
+.btn.primary:hover{background:#0A5057;color:#fff}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2{font-size:1.9rem;margin-bottom:2rem}
+.employer{font-size:1.15rem;padding:.5rem 0 .5rem .9rem;border-left:4px solid var(--teal);margin:0 0 1rem}
+.employer span{font:400 .95rem var(--sans);color:var(--muted);margin-left:.6rem}
+.group+.group{margin-top:2.75rem}
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1.5rem 3rem;margin:0 0 1rem}
+.pair{margin:0}
+.pair figcaption{color:var(--muted);font-size:.95rem;margin-bottom:.55rem}
+.bar{display:grid;grid-template-columns:3.6rem 1fr;align-items:center;gap:.6rem;margin-bottom:.4rem;font-size:.9rem;color:var(--muted)}
+.track{display:flex;align-items:center;gap:.6rem;height:1.9rem}
+.track i{display:block;height:100%;width:calc(var(--w) * .78);border-radius:3px;background:var(--line);transform-origin:left}
+.bar.now i{background:var(--teal)}
+.track b{font:600 1.1rem var(--serif);color:var(--ink);white-space:nowrap}
+.growth{margin:0 0 1rem}
+.growth .bar{grid-template-columns:11rem 1fr;margin-bottom:.7rem;color:var(--ink);font-size:.95rem}
+.growth .bar i{background:var(--teal);width:calc(var(--w) * .8)}
+.note{color:var(--muted);font-size:.85rem;margin:0 0 1rem}
+.js .viz i{transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .viz.in i{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){.js .viz i{transform:none;transition:none}}
+@media (max-width:700px){.growth .bar{grid-template-columns:1fr}}
+.tl{overflow-x:auto;margin:1.5rem 0 .5rem}
+.tl-in{min-width:40rem;padding:0 1.75rem 0 .5rem}
+.tl-title{font:600 1.1rem var(--serif);margin:1.75rem 0 0}
+.axis,.lane{position:relative;margin-left:5.5rem}
+.axis{height:1.6rem;border-bottom:1px solid var(--line)}
+.axis span{position:absolute;top:0;font-size:.8rem;color:var(--muted);padding-left:.35rem;border-left:1px solid var(--line);height:1.6rem}
+.lane{height:3.9rem;border-bottom:1px solid var(--line)}
+.lane-name{position:absolute;left:-5.5rem;top:1.1rem;font-size:.85rem;color:var(--muted);width:5rem}
+.dot{position:absolute;top:.75rem;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;font-size:.8rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.dot::before{content:"";width:1rem;height:1rem;border-radius:50%;background:var(--teal);margin-bottom:.25rem}
+.lane.rwd .dot::before{background:var(--bg);border:3px solid var(--teal)}
+.dot:hover{text-decoration:underline}
+.js .tl .dot{opacity:0;transition:opacity .5s ease}
+.js .tl.in .dot{opacity:1}
+.js .tl .dot:nth-of-type(2){transition-delay:.12s}.js .tl .dot:nth-of-type(3){transition-delay:.24s}.js .tl .dot:nth-of-type(4){transition-delay:.36s}.js .tl .dot:nth-of-type(5){transition-delay:.48s}
+@media (prefers-reduced-motion:reduce){.js .tl .dot{opacity:1;transition:none}}
+.reslinks{margin:.25rem 0 0;font-size:.95rem}
+.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:0 3rem;margin:0}
+.ledger div{padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.ledger dt{color:var(--muted);font-size:.95rem}
+.ledger dd{margin:.2rem 0 0;font-family:var(--serif);font-size:1.6rem;font-weight:600}
+.ledger dd small{font:400 .95rem var(--sans);color:var(--muted)}
+.work{list-style:none;margin:0;padding:0}
+.work li{display:grid;grid-template-columns:1fr 2fr;gap:1rem 3rem;padding:1.6rem 0;border-bottom:1px solid var(--line)}
+.work h3{font-size:1.25rem}
+.work p{margin:0}
+.work .result{color:var(--teal);font-weight:600;margin-top:.5rem}
+.role{display:grid;grid-template-columns:1fr 2fr;gap:1rem 3rem;margin-bottom:2.5rem}
+.role h3{font-size:1.25rem}
+.role .when{color:var(--muted);margin:.25rem 0 0;font-size:.95rem}
+.role .about{color:var(--muted);font-size:.95rem;margin:.75rem 0 0}
+.role ul{margin:0;padding-left:1.1rem}
+.role li{margin-bottom:.6rem}
+.facts{display:grid;grid-template-columns:1fr 2fr;gap:1rem 3rem;margin:0 0 1.75rem}
+.facts h3{font-size:1.25rem}
+.facts p,.facts ul{margin:0}
+.facts ul{list-style:none;padding:0}
+.facts li{margin-bottom:.4rem}
+.facts li span{color:var(--muted)}
+footer{padding:3.5rem 0 4rem;border-top:1px solid var(--line)}
+footer p{margin:0 0 1rem;max-width:36rem}
+@media (max-width:700px){
+  header{padding:3rem 0 2.5rem}
+  .work li,.role,.facts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="name">Andro Yuson</p>
+    <h1>Healthcare marketing that earns attention and trust.</h1>
+    <p class="lede">I am a senior marketing generalist. I run demand generation, marketing automation, social, and content programs for healthcare audiences.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:adpyusonbn@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/andro-yuson">LinkedIn</a>
+      <a class="btn" href="https://www.clippings.me/andro">See selected work</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="results">
+  <div class="wrap">
+    <h2 id="results">Results so far</h2>
+    <div class="group">
+      <h3 class="employer">egnite <span>Senior Marketing Manager, 2024 to present</span></h3>
+      <div class="pairs viz">
+        <figure class="pair">
+          <figcaption>Corporate LinkedIn followers</figcaption>
+          <div class="bar"><span>Before</span><div class="track"><i style="--w:76%"></i><b>35K</b></div></div>
+          <div class="bar now"><span>Now</span><div class="track"><i style="--w:100%"></i><b>46K+</b></div></div>
+        </figure>
+        <figure class="pair">
+          <figcaption>LinkedIn engagement rate</figcaption>
+          <div class="bar"><span>Before</span><div class="track"><i style="--w:39%"></i><b>2.4%</b></div></div>
+          <div class="bar now"><span>Now</span><div class="track"><i style="--w:100%"></i><b>6.1%</b></div></div>
+        </figure>
+      </div>
+      <dl class="ledger">
+        <div><dt>"Echoes of Evidence" newsletter</dt><dd>~7,000 <small>subscribers</small></dd></div>
+        <div><dt>Marketing qualified leads in 2026</dt><dd>50+</dd></div>
+        <div><dt>Average webinar attendance</dt><dd>50+ <small>per session</small></dd></div>
+      </dl>
+      <p class="tl-title">Webinar series, March to September 2026</p>
+      <div class="tl viz" role="group" aria-label="Timeline of six egnite webinars in 2026">
+        <div class="tl-in">
+          <div class="axis">
+            <span style="left:0">Mar</span><span style="left:14.5%">Apr</span><span style="left:28.5%">May</span><span style="left:43%">Jun</span><span style="left:57%">Jul</span><span style="left:71.5%">Aug</span><span style="left:86%">Sep</span>
+          </div>
+          <div class="lane">
+            <span class="lane-name">CardioCare</span>
+            <a class="dot" style="left:8.9%" href="https://egnitehealth.com/events/" title="Track Patients from Identification to Treatment Seamlessly">Mar 20</a>
+            <a class="dot" style="left:27.6%" href="https://egnitehealth.com/events/" title="Finding the Right Patients Faster: How Stanford Scales Trial Enrollment">Apr 29</a>
+            <a class="dot" style="left:53.3%" href="https://egnitehealth.com/driving-growth-quality-and-outcomes-with-the-cardiocare-platform/" title="Driving Growth, Quality, and Outcomes with The CardioCare Platform">Jun 23</a>
+            <a class="dot" style="left:64%" href="https://egnitehealth.com/bridging-as-patient-identification-with-clinical-action/" title="Bridging AS Patient Identification with Clinical Action">Jul 16</a>
+            <a class="dot" style="left:96.7%" href="https://events.egnitehealth.com/webinar-how-bayhealth-closed-an-as-care-gap" title="How a community heart program closed a care gap in Aortic Stenosis">Sep 24</a>
+          </div>
+          <div class="lane rwd">
+            <span class="lane-name">Real-World Data</span>
+            <a class="dot" style="left:11.2%" href="https://egnitehealth.com/events/" title="From Registry Data to the TCT Podium: How High-Impact RWE Studies Are Built">Mar 25</a>
+          </div>
+        </div>
+      </div>
+      <p class="reslinks"><a href="https://egnitehealth.com/events/">Watch the webinars</a> &nbsp; <a href="https://www.linkedin.com/newsletters/echoes-of-evidence-7305966724951035904">Read Echoes of Evidence on LinkedIn</a></p>
+    </div>
+    <div class="group">
+      <h3 class="employer">Practicing Excellence <span>Marketing Associate, 2021 to 2024</span></h3>
+      <div class="growth viz" role="group" aria-label="Growth percentages">
+        <div class="bar"><span>Email click-through rate</span><div class="track"><i style="--w:100%"></i><b>+1,162%</b></div></div>
+        <div class="bar"><span>Email open rate</span><div class="track"><i style="--w:41%"></i><b>+474%</b></div></div>
+        <div class="bar"><span>Social following</span><div class="track"><i style="--w:18%"></i><b>+206%</b></div></div>
+        <div class="bar"><span>Social engagement</span><div class="track"><i style="--w:4%"></i><b>+49%</b></div></div>
+      </div>
+      <p class="note">Bars are drawn to the same scale.</p>
+      <dl class="ledger">
+        <div><dt>"This Clinical Life" podcast, per episode</dt><dd>40+ <small>contacts, 10+ qualified leads</small></dd></div>
+        <div><dt>"This Clinical Life" podcast</dt><dd>33 <small>episodes since 2022</small></dd></div>
+      </dl>
+      <p class="reslinks"><a href="https://thisclinicallife.buzzsprout.com/">Listen to This Clinical Life</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <h2 id="work-h">Selected work</h2>
+
+    <div class="group">
+      <h3 class="employer">egnite <span>Cardiovascular intelligence company</span></h3>
+      <ul class="work">
+        <li>
+          <h3>Lead generation for CardioCare and Real-World Data</h3>
+          <div>
+            <p>Planned and ran targeted campaigns for two verticals, including a webinar series that moved active sales conversations forward and brought in new qualified leads.</p>
+            <p class="result">50+ MQLs in 2026. 50+ attendees per webinar on average.</p>
+          </div>
+        </li>
+        <li>
+          <h3>Pardot to HubSpot migration</h3>
+          <div>
+            <p>Led the move between marketing platforms and built automated nurture workflows that speed up MQL progress and make hand-offs to inside sales smoother.</p>
+            <p class="result">Faster MQL velocity and cleaner sales hand-offs.</p>
+          </div>
+        </li>
+        <li>
+          <h3>Echoes of Evidence newsletter</h3>
+          <div>
+            <p>Launched a newsletter for readers across medtech, pharma, and healthcare.</p>
+            <p class="result">Nearly 7,000 subscribers.</p>
+          </div>
+        </li>
+        <li>
+          <h3>LinkedIn strategy</h3>
+          <div>
+            <p>Rebuilt the organic social approach for the corporate page.</p>
+            <p class="result">35K to 46K+ followers. Engagement rate from 2.4% to 6.1%.</p>
+          </div>
+        </li>
+        <li>
+          <h3>Sales enablement and 2025 brand refresh</h3>
+          <div>
+            <p>Created case studies, one-pagers, and pitch decks for the sales team. Helped lead the 2025 brand and messaging overhaul, covering the corporate website and conference presence.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h3 class="employer">Practicing Excellence <span>Healthcare skill-building</span></h3>
+      <ul class="work">
+        <li>
+          <h3>This Clinical Life podcast</h3>
+          <div>
+            <p>Launched a monthly podcast that positions Practicing Excellence as a leader in healthcare skill-building.</p>
+            <p class="result">At least 40 new contacts and 10 qualified leads per episode.</p>
+          </div>
+        </li>
+        <li>
+          <h3>SEO and content calendar</h3>
+          <div>
+            <p>Built and managed a content calendar around the topics buyers search for.</p>
+            <p class="result">#1 rankings for "skill building in healthcare" and "human connection skills in healthcare."</p>
+          </div>
+        </li>
+        <li>
+          <h3>Email marketing</h3>
+          <div>
+            <p>Ran targeted email campaigns.</p>
+            <p class="result">Open rates up 474%. Click-through rates up 1,162%.</p>
+          </div>
+        </li>
+        <li>
+          <h3>Social media thought leadership</h3>
+          <div>
+            <p>Used a creative thought leadership strategy to grow the audience.</p>
+            <p class="result">Followers up 206%. Engagement up 49%.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section aria-labelledby="exp">
+  <div class="wrap">
+    <h2 id="exp">Experience</h2>
+    <div class="role">
+      <div>
+        <h3>Senior Marketing Manager</h3>
+        <p class="when">egnite, remote<br>November 2024 to present</p>
+        <p class="about">A cardiovascular intelligence company that uses AI and clinical workflow integration to help health systems find and manage patients with untreated cardiovascular disease, and provides de-identified real-world data for life sciences and research.</p>
+      </div>
+      <ul>
+        <li><strong>Growth and demand generation:</strong> ran lead generation for the CardioCare and Real-World Data verticals and a webinar series that supports both active sales conversations and new leads.</li>
+        <li><strong>Marketing operations:</strong> led the Pardot to HubSpot migration and designed the lead-nurturing workflows.</li>
+        <li><strong>Social and audience building:</strong> grew LinkedIn from 35K to 46K+ followers and launched the Echoes of Evidence newsletter.</li>
+        <li><strong>Sales enablement and brand:</strong> produced sales assets and collaborated on the 2025 brand and messaging overhaul.</li>
+        <li><strong>Partnerships:</strong> managed external vendors and strategic partners to scale marketing capacity.</li>
+      </ul>
+    </div>
+    <div class="role">
+      <div>
+        <h3>Marketing Associate</h3>
+        <p class="when">Practicing Excellence, remote<br>September 2021 to October 2024</p>
+        <p class="about">Partners with leading healthcare systems and medical groups on system-wide skill-building that improves patient connection, team collaboration, and leadership effectiveness.</p>
+      </div>
+      <ul>
+        <li><strong>Social media:</strong> grew followers 206% and engagement 49%.</li>
+        <li><strong>SEO and content:</strong> earned #1 search rankings for two core healthcare skill-building keywords.</li>
+        <li><strong>Email:</strong> raised open rates 474% and click-through rates 1,162%.</li>
+        <li><strong>Sales enablement:</strong> built sales materials and scalable marketing automation systems.</li>
+        <li><strong>Thought leadership:</strong> launched the This Clinical Life podcast.</li>
+      </ul>
+    </div>
+    <div class="role">
+      <div>
+        <h3>Content Writer and Social Media Manager</h3>
+        <p class="when">ETech 7, remote<br>May 2018 to September 2021</p>
+        <p class="about">An NYC-based managed IT services provider offering IT support and consulting to local businesses.</p>
+      </div>
+      <ul>
+        <li><strong>Content creation:</strong> launched and managed all social platforms and wrote for social, email, blogs, paid ads, and webinars.</li>
+        <li><strong>Content visibility:</strong> built a distribution strategy that included a Quora presence with 300,000+ views.</li>
+        <li><strong>Process optimization:</strong> monitored channel performance and ran regular SEO audits.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="edu">
+  <div class="wrap">
+    <h2 id="edu">Education, certifications, and tools</h2>
+    <div class="facts">
+      <h3>Education</h3>
+      <ul>
+        <li>Master's in Business Administration <span>Stratford University</span></li>
+        <li>Bachelor's in International Studies <span>San Beda College, Metro Manila, Philippines</span></li>
+      </ul>
+    </div>
+    <div class="facts">
+      <h3>Certifications</h3>
+      <ul>
+        <li>Content Marketing <span>HubSpot</span></li>
+        <li>Email Marketing <span>HubSpot</span></li>
+        <li>Search Engine Optimization <span>HubSpot</span></li>
+        <li>Social Media Marketing <span>HubSpot</span></li>
+        <li>Digital Marketing Fundamentals <span>Google</span></li>
+        <li>Civil Service Professional <span>Philippine Government</span></li>
+      </ul>
+    </div>
+    <div class="facts">
+      <h3>Tools</h3>
+      <p>Adobe Express, Adobe InDesign, Asana, Buffer, BuzzSumo, Campaign Monitor, Canva, ChatGPT, Claude, Gemini, Google Analytics, Google Suite, Hootsuite, HubSpot, LinkedIn Campaign Manager, LinkedIn Sales Navigator, MailChimp, Meltwater, Microsoft 365, Salesforce (intermediate), Semrush, Slack, Trello, WordPress, ZoomInfo</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>I'm happy to talk about healthcare marketing, demand generation, or working together.</p>
+    <p><a href="mailto:adpyusonbn@gmail.com">adpyusonbn@gmail.com</a> &nbsp; <a href="https://www.linkedin.com/in/andro-yuson">LinkedIn</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var els=document.querySelectorAll('.viz');
+  if(!('IntersectionObserver' in window)){return;}
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.3});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
